@@ -73,10 +73,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addemployee.Designer.vb">
-      <DependentUpon>addemployee.vb</DependentUpon>
+    <Compile Include="admindetail.Designer.vb">
+      <DependentUpon>admindetail.vb</DependentUpon>
     </Compile>
-    <Compile Include="addemployee.vb">
+    <Compile Include="admindetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="employeedetail.Designer.vb">
+      <DependentUpon>employeedetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="employeedetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin.Designer.vb">
+      <DependentUpon>admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="connection.vb" />
@@ -123,8 +135,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="addemployee.resx">
-      <DependentUpon>addemployee.vb</DependentUpon>
+    <EmbeddedResource Include="admindetail.resx">
+      <DependentUpon>admindetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="employeedetail.resx">
+      <DependentUpon>employeedetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="employee.resx">
       <DependentUpon>employee.vb</DependentUpon>

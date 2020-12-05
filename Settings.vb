@@ -62,8 +62,6 @@ Public Class Settings
     End Sub
 
     Private Sub NewPasswordTextBox_TextChanged(sender As Object, e As EventArgs) Handles NewPasswordTextBox.TextChanged
-
-
         Label3.Show()
         ConfirmPasswordTextBox.Show()
     End Sub

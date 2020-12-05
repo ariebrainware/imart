@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class addemployee
+Partial Class employeedetail
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -116,21 +116,21 @@ Partial Class addemployee
         Me.NameTextBox.Location = New System.Drawing.Point(129, 47)
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(200, 20)
-        Me.NameTextBox.TabIndex = 8
+        Me.NameTextBox.TabIndex = 1
         '
         'PlaceOfBirthTextBox
         '
         Me.PlaceOfBirthTextBox.Location = New System.Drawing.Point(129, 103)
         Me.PlaceOfBirthTextBox.Name = "PlaceOfBirthTextBox"
         Me.PlaceOfBirthTextBox.Size = New System.Drawing.Size(200, 20)
-        Me.PlaceOfBirthTextBox.TabIndex = 9
+        Me.PlaceOfBirthTextBox.TabIndex = 4
         '
         'PhoneTextBox
         '
         Me.PhoneTextBox.Location = New System.Drawing.Point(129, 176)
         Me.PhoneTextBox.Name = "PhoneTextBox"
         Me.PhoneTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.PhoneTextBox.TabIndex = 10
+        Me.PhoneTextBox.TabIndex = 6
         '
         'AddressTextBox
         '
@@ -138,7 +138,7 @@ Partial Class addemployee
         Me.AddressTextBox.Multiline = True
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.Size = New System.Drawing.Size(341, 47)
-        Me.AddressTextBox.TabIndex = 11
+        Me.AddressTextBox.TabIndex = 7
         '
         'MaleRadioButton
         '
@@ -146,7 +146,7 @@ Partial Class addemployee
         Me.MaleRadioButton.Location = New System.Drawing.Point(129, 80)
         Me.MaleRadioButton.Name = "MaleRadioButton"
         Me.MaleRadioButton.Size = New System.Drawing.Size(48, 17)
-        Me.MaleRadioButton.TabIndex = 12
+        Me.MaleRadioButton.TabIndex = 2
         Me.MaleRadioButton.TabStop = True
         Me.MaleRadioButton.Text = "Male"
         Me.MaleRadioButton.UseVisualStyleBackColor = True
@@ -157,7 +157,7 @@ Partial Class addemployee
         Me.FemaleRadioButton.Location = New System.Drawing.Point(225, 80)
         Me.FemaleRadioButton.Name = "FemaleRadioButton"
         Me.FemaleRadioButton.Size = New System.Drawing.Size(59, 17)
-        Me.FemaleRadioButton.TabIndex = 13
+        Me.FemaleRadioButton.TabIndex = 3
         Me.FemaleRadioButton.TabStop = True
         Me.FemaleRadioButton.Text = "Female"
         Me.FemaleRadioButton.UseVisualStyleBackColor = True
@@ -167,14 +167,14 @@ Partial Class addemployee
         Me.DateOfBirthDateTimePicker.Location = New System.Drawing.Point(129, 141)
         Me.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker"
         Me.DateOfBirthDateTimePicker.Size = New System.Drawing.Size(200, 20)
-        Me.DateOfBirthDateTimePicker.TabIndex = 14
+        Me.DateOfBirthDateTimePicker.TabIndex = 5
         '
         'SaveButton
         '
         Me.SaveButton.Location = New System.Drawing.Point(128, 302)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(75, 23)
-        Me.SaveButton.TabIndex = 15
+        Me.SaveButton.TabIndex = 8
         Me.SaveButton.Text = "&Save"
         Me.SaveButton.UseVisualStyleBackColor = True
         '
@@ -183,11 +183,11 @@ Partial Class addemployee
         Me.CancelButton.Location = New System.Drawing.Point(271, 302)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.CancelButton.TabIndex = 16
+        Me.CancelButton.TabIndex = 9
         Me.CancelButton.Text = "&Cancel"
         Me.CancelButton.UseVisualStyleBackColor = True
         '
-        'addemployee
+        'employeedetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -209,7 +209,8 @@ Partial Class addemployee
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.EmployeeIDTextBox)
-        Me.Name = "addemployee"
+        Me.MaximizeBox = False
+        Me.Name = "employeedetail"
         Me.Text = "Add Employee"
         Me.ResumeLayout(False)
         Me.PerformLayout()

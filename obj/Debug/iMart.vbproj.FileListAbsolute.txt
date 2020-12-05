@@ -12,5 +12,7 @@ C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.xml
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.pdb
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.Settings.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.main.resources
-C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.addemployee.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.employee.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.admin.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.employeedetail.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.admindetail.resources

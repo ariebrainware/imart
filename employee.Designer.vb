@@ -22,11 +22,13 @@ Partial Class employee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.EmployeeDataGridView = New System.Windows.Forms.DataGridView()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.AddEmployeeButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -37,7 +39,8 @@ Partial Class employee
         Me.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.EmployeeDataGridView.Location = New System.Drawing.Point(12, 39)
         Me.EmployeeDataGridView.Name = "EmployeeDataGridView"
-        Me.EmployeeDataGridView.Size = New System.Drawing.Size(776, 399)
+        Me.EmployeeDataGridView.ReadOnly = True
+        Me.EmployeeDataGridView.Size = New System.Drawing.Size(832, 399)
         Me.EmployeeDataGridView.TabIndex = 0
         '
         'SearchTextBox
@@ -74,16 +77,22 @@ Partial Class employee
         Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = True
         '
+        'Timer
+        '
+        Me.Timer.Enabled = True
+        Me.Timer.Interval = 2000
+        '
         'employee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(856, 450)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.AddEmployeeButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.EmployeeDataGridView)
+        Me.MaximizeBox = False
         Me.Name = "employee"
         Me.Text = "Employee"
         CType(Me.EmployeeDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -97,4 +106,5 @@ Partial Class employee
     Friend WithEvents Label1 As Label
     Friend WithEvents AddEmployeeButton As Button
     Friend WithEvents BackButton As Button
+    Friend WithEvents Timer As Timer
 End Class

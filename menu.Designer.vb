@@ -23,11 +23,12 @@ Partial Class main
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MennuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdminToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,18 +42,18 @@ Partial Class main
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusStrip = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.MenuStrip1.SuspendLayout()
+        Me.MenuStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MenuStrip1
+        'MenuStrip
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.MennuToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.MennuToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip.TabIndex = 0
+        Me.MenuStrip.Text = "MenuStrip1"
         '
         'AccountToolStripMenuItem
         '
@@ -75,33 +76,39 @@ Partial Class main
         '
         'MennuToolStripMenuItem
         '
-        Me.MennuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmployeeToolStripMenuItem, Me.CategoryToolStripMenuItem, Me.ItemToolStripMenuItem, Me.SupplierToolStripMenuItem})
+        Me.MennuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdminToolStripMenuItem, Me.EmployeeToolStripMenuItem, Me.CategoryToolStripMenuItem, Me.ItemToolStripMenuItem, Me.SupplierToolStripMenuItem})
         Me.MennuToolStripMenuItem.Name = "MennuToolStripMenuItem"
         Me.MennuToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.MennuToolStripMenuItem.Text = "Menu"
         '
+        'AdminToolStripMenuItem
+        '
+        Me.AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
+        Me.AdminToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AdminToolStripMenuItem.Text = "Admin"
+        '
         'EmployeeToolStripMenuItem
         '
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
         '
         'CategoryToolStripMenuItem
         '
         Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CategoryToolStripMenuItem.Text = "Category"
         '
         'ItemToolStripMenuItem
         '
         Me.ItemToolStripMenuItem.Name = "ItemToolStripMenuItem"
-        Me.ItemToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ItemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ItemToolStripMenuItem.Text = "Item"
         '
         'SupplierToolStripMenuItem
         '
         Me.SupplierToolStripMenuItem.Name = "SupplierToolStripMenuItem"
-        Me.SupplierToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.SupplierToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SupplierToolStripMenuItem.Text = "Supplier"
         '
         'TransactionToolStripMenuItem
@@ -114,13 +121,13 @@ Partial Class main
         'SalesToolStripMenuItem
         '
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'RestockToolStripMenuItem
         '
         Me.RestockToolStripMenuItem.Name = "RestockToolStripMenuItem"
-        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RestockToolStripMenuItem.Text = "Restock"
         '
         'ReportToolStripMenuItem
@@ -167,13 +174,13 @@ Partial Class main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.MenuStrip)
         Me.IsMdiContainer = True
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "main"
         Me.Text = "iMart"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -181,7 +188,7 @@ Partial Class main
 
     End Sub
 
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuStrip As MenuStrip
     Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TransactionToolStripMenuItem As ToolStripMenuItem
@@ -199,4 +206,5 @@ Partial Class main
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents StatusStrip As ToolStripStatusLabel
+    Friend WithEvents AdminToolStripMenuItem As ToolStripMenuItem
 End Class
