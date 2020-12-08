@@ -42,4 +42,14 @@
     Private Sub RestockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestockToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
+        category.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub SupplierToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupplierToolStripMenuItem.Click
+        supplier.Show()
+        Me.Hide()
+    End Sub
 End Class

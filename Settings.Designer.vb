@@ -166,6 +166,7 @@ Partial Class Settings
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.UpdateButton)
+        Me.MaximizeBox = False
         Me.Name = "Settings"
         Me.Text = "Settings"
         CType(Me.ShowPasswordButton, System.ComponentModel.ISupportInitialize).EndInit()

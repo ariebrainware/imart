@@ -10,6 +10,12 @@ Public Class employee
         conn.Close()
     End Sub
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+        If SearchTextBox.Text = "" Then
+            Timer.Enabled = True
+        Else
+            Timer.Enabled = False
+        End If
+
         dbconnection()
         command = "SELECT * FROM employee WHERE name LIKE '%' '" & SearchTextBox.Text & "' '%' OR id LIKE '%' '" & SearchTextBox.Text & "'"
         da = New OdbcDataAdapter(command, conn)

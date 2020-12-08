@@ -77,6 +77,12 @@ Public Class admin
     End Sub
 
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+        If SearchTextBox.Text = "" Then
+            Timer.Enabled = True
+        Else
+            Timer.Enabled = False
+        End If
+
         dbconnection()
         command = "SELECT * FROM admin WHERE name LIKE '%' '" & SearchTextBox.Text & "' '%' OR username LIKE '%' '" & SearchTextBox.Text & "' '%' OR id LIKE '%' '" & SearchTextBox.Text & "'"
         da = New OdbcDataAdapter(command, conn)
@@ -121,6 +127,9 @@ Public Class admin
         DGVButton()
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
     Private Sub AdminDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles AdminDataGridView.CellClick
         If AdminDataGridView.RowCount > 0 Then
             Dim row As Integer

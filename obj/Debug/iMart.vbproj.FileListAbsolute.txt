@@ -16,3 +16,7 @@ C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.employee.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.admin.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.employeedetail.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.admindetail.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.category.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.categorydetail.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.supplier.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.supplierdetail.resources

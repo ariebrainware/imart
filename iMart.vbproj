@@ -79,6 +79,18 @@
     <Compile Include="admindetail.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="category.Designer.vb">
+      <DependentUpon>category.vb</DependentUpon>
+    </Compile>
+    <Compile Include="category.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="categorydetail.Designer.vb">
+      <DependentUpon>categorydetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="categorydetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="employeedetail.Designer.vb">
       <DependentUpon>employeedetail.vb</DependentUpon>
     </Compile>
@@ -133,10 +145,28 @@
     <Compile Include="Settings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="supplier.Designer.vb">
+      <DependentUpon>supplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="supplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supplierdetail.Designer.vb">
+      <DependentUpon>supplierdetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="supplierdetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="admindetail.resx">
       <DependentUpon>admindetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="category.resx">
+      <DependentUpon>category.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="categorydetail.resx">
+      <DependentUpon>categorydetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="employeedetail.resx">
       <DependentUpon>employeedetail.vb</DependentUpon>
@@ -161,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplier.resx">
+      <DependentUpon>supplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplierdetail.resx">
+      <DependentUpon>supplierdetail.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

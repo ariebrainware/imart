@@ -121,13 +121,13 @@ Partial Class main
         'SalesToolStripMenuItem
         '
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'RestockToolStripMenuItem
         '
         Me.RestockToolStripMenuItem.Name = "RestockToolStripMenuItem"
-        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.RestockToolStripMenuItem.Text = "Restock"
         '
         'ReportToolStripMenuItem
