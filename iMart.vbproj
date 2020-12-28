@@ -110,6 +110,18 @@
     <Compile Include="employee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="item.Designer.vb">
+      <DependentUpon>item.vb</DependentUpon>
+    </Compile>
+    <Compile Include="item.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="itemdetail.Designer.vb">
+      <DependentUpon>itemdetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="itemdetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="menu.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="employee.resx">
       <DependentUpon>employee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="item.resx">
+      <DependentUpon>item.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="itemdetail.resx">
+      <DependentUpon>itemdetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
