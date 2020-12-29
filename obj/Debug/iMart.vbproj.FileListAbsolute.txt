@@ -22,3 +22,4 @@ C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.supplier.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.supplierdetail.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.item.resources
 C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.itemdetail.resources
+C:\Users\Brainware\source\repos\iMart\obj\Debug\iMart.restock.resources

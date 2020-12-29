@@ -44,6 +44,7 @@ Public Class itemdetail
     End Function
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        Dim id As String
         'Handle update item detail
         If SaveButton.Text = "Update" Then
             dbconnection()
@@ -86,8 +87,9 @@ Public Class itemdetail
         End If
         conn.Close()
 
+        id = generateInvoiceNumber()
         dbconnection()
-        command = "INSERT INTO item (barcode,name,unit,category_id,price,stock,date_input,updated_at,admin_id) VALUES('" & BarcodeTextBox.Text & "','" & NameTextBox.Text & "','" & UnitTextBox.Text & "','" & selectedItemID & "','" & PriceTextBox.Text & "','" & StockTextBox.Text & "','" & Now & "','" & Now & "','" & adminID & "')"
+        command = "INSERT INTO item (id,barcode,name,unit,category_id,price,stock,date_input,updated_at,admin_id) VALUES('" & id & "','" & BarcodeTextBox.Text & "','" & NameTextBox.Text & "','" & UnitTextBox.Text & "','" & selectedItemID & "','" & PriceTextBox.Text & "','" & StockTextBox.Text & "','" & Now & "','" & Now & "','" & adminID & "')"
         query = New OdbcCommand(command, conn)
         query.ExecuteNonQuery()
 

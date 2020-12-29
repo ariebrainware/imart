@@ -92,6 +92,7 @@ Partial Class item
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.ItemDataGridView)
+        Me.MaximizeBox = False
         Me.Name = "item"
         Me.Text = "Item"
         CType(Me.ItemDataGridView, System.ComponentModel.ISupportInitialize).EndInit()

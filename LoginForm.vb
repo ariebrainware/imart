@@ -16,6 +16,7 @@ Public Class LoginForm
         While reader.Read()
             If reader.HasRows Then
                 username = UsernameTextBox.Text
+                loginEntitityID = reader.Item("id")
                 level = reader.Item("level")
                 If MessageBox.Show("Success Login", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
                     main.Show()
