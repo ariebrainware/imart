@@ -1,5 +1,5 @@
 ﻿Imports System.Data.Odbc
-Public Class restock
+Public Class sales
     Public Declare Sub Sleep Lib "kernel32" Alias "Sleep" (ByVal dwMilliseconds As Integer)
     Dim check As String
     Dim net, discount As Integer
@@ -11,7 +11,7 @@ Public Class restock
         DGVDeleteColumnButton.Text = "Delete"
         DGVDeleteColumnButton.Width = 50
         DGVDeleteColumnButton.UseColumnTextForButtonValue = True
-        RestockDataGridView.Columns.Add(DGVDeleteColumnButton)
+        CartDataGridView.Columns.Add(DGVDeleteColumnButton)
 
         DGVEditColumnButton.Name = "DGVEditColumnButton"
         DGVEditColumnButton.HeaderText = ""
@@ -20,34 +20,23 @@ Public Class restock
         DGVEditColumnButton.Text = "Edit"
         DGVEditColumnButton.Width = 50
         DGVEditColumnButton.UseColumnTextForButtonValue = True
-        RestockDataGridView.Columns.Add(DGVEditColumnButton)
+        CartDataGridView.Columns.Add(DGVEditColumnButton)
     End Sub
-    Sub SetRestockDGVHeader()
-        RestockDataGridView.Columns(0).HeaderText = "Invoice Number"
-        RestockDataGridView.Columns(1).HeaderText = "Restock Date"
-        RestockDataGridView.Columns(2).HeaderText = "Supplier ID"
-        RestockDataGridView.Columns(3).HeaderText = "Discount"
-        RestockDataGridView.Columns(4).HeaderText = "Gross"
-        RestockDataGridView.Columns(5).HeaderText = "Net"
-        RestockDataGridView.Columns(6).HeaderText = "Admin ID"
-        RestockDataGridView.Columns(7).HeaderText = "Created At"
-
-        RestockDataGridView.Columns(1).Width = 150
-    End Sub
-    Sub SetTemporaryItemDGVHeader()
-        RestockDataGridView.Columns(0).HeaderText = "Invoice Number"
-        RestockDataGridView.Columns(1).HeaderText = "Name"
-        RestockDataGridView.Columns(2).HeaderText = "Unit"
-        RestockDataGridView.Columns(3).HeaderText = "Price"
-        RestockDataGridView.Columns(4).HeaderText = "Discount"
-        RestockDataGridView.Columns(5).HeaderText = "Net"
-        RestockDataGridView.Columns(6).HeaderText = "Quantity"
-        RestockDataGridView.Columns(7).HeaderText = "SubTotal"
+    Sub SetSalesItemDGVHeader()
+        CartDataGridView.Columns(0).HeaderText = "Invoice Number"
+        CartDataGridView.Columns(1).HeaderText = "Name"
+        CartDataGridView.Columns(2).HeaderText = "Unit"
+        CartDataGridView.Columns(3).HeaderText = "Price"
+        CartDataGridView.Columns(4).HeaderText = "Discount"
+        CartDataGridView.Columns(5).HeaderText = "Net"
+        CartDataGridView.Columns(6).HeaderText = "Quantity"
+        CartDataGridView.Columns(7).HeaderText = "SubTotal"
+        CartDataGridView.Columns(1).Width = 150
     End Sub
     Sub enableInput()
         QtyDetailTextBox.Enabled = True
         SubTotalTextBox.Enabled = True
-        OKButton.Enabled = True
+        AddToCartButton.Enabled = True
     End Sub
     Sub disableInput()
         NameDetailTextBox.Enabled = False
@@ -55,14 +44,9 @@ Public Class restock
         PriceDetailTextBox.Enabled = False
         QtyDetailTextBox.Enabled = False
         SubTotalTextBox.Enabled = False
-        OKButton.Enabled = False
+        AddToCartButton.Enabled = False
     End Sub
     Sub clearField()
-        PhoneTextBox.Text = ""
-        AddressTextBox.Text = ""
-        SupplierIDTextBox.Text = ""
-        SupplierNameTextBox.Text = ""
-
         QtyDetailTextBox.Text = ""
         SubTotalTextBox.Text = ""
         SubTotalValueLabel.Text = ""
@@ -71,17 +55,22 @@ Public Class restock
         DiscountTextBox.Text = ""
     End Sub
     Sub calculateTotal(subtotal As String)
+        discount = Val(DiscountTextBox.Text)
         SubTotalValueLabel.Text = Format(Val(subtotal), "Rp ###,###,###")
-        DiscountValueLabel.Text = Format(Val(discount) / 100 * Val(subtotal), "Rp #,###,###,###")
-        net = Val(subtotal) - Val(discount) / 100 * Val(subtotal)
+        DiscountValueLabel.Text = Format(Val(DiscountTextBox.Text) / 100 * Val(subtotal), "Rp #,###,###,###")
+        If discount >= 0 Then
+            net = Val(subtotal) - discount / 100 * Val(subtotal)
+        Else
+            net = Val(subtotal)
+        End If
         TotalValueLabel.Text = Format(net, "Rp #,###,###,###")
     End Sub
     Sub showData()
         dbconnection()
-        da = New OdbcDataAdapter("SELECT * FROM restock WHERE admin_id = '" & loginEntitityID & "'", conn)
+        da = New OdbcDataAdapter("SELECT * FROM temp WHERE is_archieve='false'", conn)
         ds = New DataSet
-        da.Fill(ds, "restock")
-        RestockDataGridView.DataSource = ds.Tables("restock")
+        da.Fill(ds, "temp")
+        CartDataGridView.DataSource = ds.Tables("temp")
         conn.Close()
     End Sub
     Sub showDataSQL(sql As String)
@@ -89,41 +78,15 @@ Public Class restock
         da = New OdbcDataAdapter(sql, conn)
         ds = New DataSet
         da.Fill(ds, "data")
-        RestockDataGridView.DataSource = ds.Tables("data")
+        CartDataGridView.DataSource = ds.Tables("data")
         conn.Close()
-    End Sub
-    Sub searchData()
-        dbconnection()
-        check = "SELECT * FROM supplier WHERE id='" & SupplierIDTextBox.Text & "'"
-        query = New OdbcCommand(check, conn)
-        reader = query.ExecuteReader()
-        If reader.HasRows Then
-            PhoneTextBox.Text = reader.Item("phone")
-            AddressTextBox.Text = reader.Item("address")
-            SupplierNameTextBox.Text = reader.Item("name")
-            MessageBox.Show("Supplier found", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            MessageBox.Show("Supplier not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            conn.Close()
-            Return
-        End If
-        conn.Close()
-    End Sub
-
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
-        If SupplierIDTextBox.Text = "" Then
-            Timer.Enabled = True
-        Else
-            Timer.Enabled = False
-        End If
-        searchData()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles NewButton.Click
         enableInput()
         showDataSQL("SELECT temp.invoice_number, item.name, item.unit, temp.price, temp.discount, temp.net,temp.qty, temp.price * temp.qty AS subtotal FROM temp JOIN item on temp.invoice_number=item.id WHERE item.admin_id='" & loginEntitityID & "' AND temp.is_archieve='false'")
-        SetTemporaryItemDGVHeader()
+        SetSalesItemDGVHeader()
         Timer.Enabled = False
-        SaveButton.Enabled = True
+        PaymentButton.Enabled = True
     End Sub
     Sub loadInvoiceItem()
         Dim dt As New DataTable
@@ -139,7 +102,7 @@ Public Class restock
         showData()
         loadInvoiceItem()
         'DGVButton()
-        SetRestockDGVHeader()
+        SetSalesItemDGVHeader()
     End Sub
 
     Private Sub restock_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -149,26 +112,35 @@ Public Class restock
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         showData()
-        SetRestockDGVHeader()
+        SetSalesItemDGVHeader()
         disableInput()
         clearField()
-        SaveButton.Enabled = False
+        PaymentButton.Enabled = False
     End Sub
 
     Private Sub QtyDetailTextBox_TextChanged(sender As Object, e As EventArgs) Handles QtyDetailTextBox.TextChanged
         SubTotalTextBox.Text = Val(PriceDetailTextBox.Text) * Val(QtyDetailTextBox.Text)
     End Sub
 
-    Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
+
+    Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles AddToCartButton.Click
         dbconnection()
-        command = "INSERT INTO temp (id,qty,price,invoice_number,discount,net,is_archieve,updated_at) VALUES(0,'" & QtyDetailTextBox.Text & "','" & PriceDetailTextBox.Text & "','" & InvoiceItemComboBox.Text & "','" & DiscountTextBox.Text & "','" & net & "','false','')"
+        If QtyDetailTextBox.Text = "" And SubTotalTextBox.Text = "" Then
+            MessageBox.Show("Please provide the quantity to add", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            clearField()
+            QtyDetailTextBox.Focus()
+            Return
+        End If
+
+        calculateTotal(SubTotalTextBox.Text)
+        command = "INSERT INTO temp (id,qty,price,invoice_number,discount,net,is_archieve,updated_at) VALUES('0','" & QtyDetailTextBox.Text & "','" & PriceDetailTextBox.Text & "','" & InvoiceItemComboBox.Text & "','" & Val(DiscountTextBox.Text) & "','" & net & "','false','')"
         query = New OdbcCommand(command, conn)
         query.ExecuteNonQuery()
-        If MessageBox.Show("Item added to Temporary Restock", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
+        If MessageBox.Show("Item added to Cart", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
             clearField()
         End If
         showDataSQL("SELECT temp.invoice_number, item.name, item.unit, temp.price, temp.discount, temp.net, temp.qty, temp.price * temp.qty AS subtotal FROM temp JOIN item on temp.invoice_number=item.id WHERE item.admin_id='" & loginEntitityID & "' AND temp.is_archieve='false'")
-        SetTemporaryItemDGVHeader()
+        SetSalesItemDGVHeader()
         conn.Close()
     End Sub
 
@@ -177,9 +149,9 @@ Public Class restock
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        RestockDataGridView.Columns.Clear()
+        CartDataGridView.Columns.Clear()
         showData()
-        SetRestockDGVHeader()
+        SetSalesItemDGVHeader()
         'DGVButton()
     End Sub
 
@@ -199,39 +171,45 @@ Public Class restock
         End If
         Return
     End Sub
+    Sub addSalesDetail(invoiceNumber As String)
+        dbconnection()
+        command = "INSERT INTO sales_detail (id,invoice_number,item_id,qty,price) SELECT '0',invoice_number,invoice_number,qty,price FROM temp WHERE invoice_number='" & invoiceNumber & "' AND is_archieve='false' AND updated_at=''"
+        query = New OdbcCommand(command, conn)
+        query.ExecuteNonQuery()
+        conn.Close()
+    End Sub
+    Private Sub PaymentButton_Click(sender As Object, e As EventArgs) Handles PaymentButton.Click
+        If MessageBox.Show("Proceed to payment?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            'TODO: handle payment form
+            payment.Show()
 
-    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        If MessageBox.Show("Are you sure you want to save?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            If SupplierIDTextBox.Text = "" Then
-                MessageBox.Show("Please find and provide supplier first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
+            'Insert sales
+            dbconnection()
+            command = "INSERT INTO sales (id,invoice_number,date,discount,gross,net,admin_id) SELECT '0',invoice_number,NOW(),discount,price*qty,net,'" & loginEntitityID & "' FROM temp WHERE is_archieve='false'"
+            query = New OdbcCommand(command, conn)
+            query.ExecuteNonQuery()
+            conn.Close()
+
+            'Insert sales_detail
+            Dim invoiceNumber As String
+            For Each row As DataGridViewRow In CartDataGridView.Rows
+                invoiceNumber = row.Cells(0).Value
+                addSalesDetail(invoiceNumber)
+            Next
+
+            ' Calculate total from cart
+            dbconnection()
+            check = "SELECT SUM(temp.net) AS total FROM temp WHERE is_archieve='false' AND updated_at=''"
+            query = New OdbcCommand(check, conn)
+            reader = query.ExecuteReader()
+            If reader.HasRows Then
+                totalPayment = reader.Item("total")
+                payment.TotalTextBox.Text = Format(Val(totalPayment), "Rp ###,###,###")
             Else
-                'Insert restock
-                dbconnection()
-                command = "INSERT INTO restock (invoice_number,restock_date,supplier_id,discount,gross,net,admin_id,created_at) SELECT invoice_number,NOW(),'" & SupplierIDTextBox.Text & "',discount,price*qty,net,'" & loginEntitityID & "',NOW() FROM temp WHERE is_archieve='false'"
-                query = New OdbcCommand(command, conn)
-                query.ExecuteNonQuery()
-                If MessageBox.Show("Item Restocked", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
-                    clearField()
-                    item.showData()
-                End If
-                conn.Close()
+                MessageBox.Show("Cart is empty", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
 
-            'Insert restock_detail
-            dbconnection()
-            command = "INSERT INTO restock_detail (id,invoice_number,item_id,qty,price) SELECT '0',invoice_number,invoice_number,qty,price FROM temp"
-            query = New OdbcCommand(command, conn)
-            query.ExecuteNonQuery()
-            conn.Close()
-
-            'Set temp as archieve record instead delete it
-            dbconnection()
-            command = "UPDATE temp SET is_archieve='true', updated_at=NOW() WHERE updated_at=''"
-            query = New OdbcCommand(command, conn)
-            query.ExecuteNonQuery()
-            showData()
-            conn.Close()
+            payment.Show()
         End If
     End Sub
 End Class

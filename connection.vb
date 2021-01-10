@@ -8,7 +8,7 @@ Module connection
     Public reader As OdbcDataReader
     Private Declare Function timeGetTime Lib "winmm.dll" () As Long
     Public lngStartTime As Long
-    Public command, username, loginEntitityID, level As String
+    Public command, username, loginEntitityID, level, totalPayment As String
     Public DGVDeleteColumnButton, DGVEditColumnButton As New DataGridViewButtonColumn
     Public Sub dbconnection()
         Dim teks As String = "Dsn=imart;server=127.0.0.1;uid=root;password=L0c4lDB;database=imart;port=3306"

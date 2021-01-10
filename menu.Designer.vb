@@ -84,31 +84,31 @@ Partial Class main
         'AdminToolStripMenuItem
         '
         Me.AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
-        Me.AdminToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.AdminToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AdminToolStripMenuItem.Text = "Admin"
         '
         'EmployeeToolStripMenuItem
         '
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
         '
         'CategoryToolStripMenuItem
         '
         Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CategoryToolStripMenuItem.Text = "Category"
         '
         'ItemToolStripMenuItem
         '
         Me.ItemToolStripMenuItem.Name = "ItemToolStripMenuItem"
-        Me.ItemToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ItemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ItemToolStripMenuItem.Text = "Item"
         '
         'SupplierToolStripMenuItem
         '
         Me.SupplierToolStripMenuItem.Name = "SupplierToolStripMenuItem"
-        Me.SupplierToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.SupplierToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SupplierToolStripMenuItem.Text = "Supplier"
         '
         'TransactionToolStripMenuItem
@@ -121,13 +121,13 @@ Partial Class main
         'SalesToolStripMenuItem
         '
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'RestockToolStripMenuItem
         '
         Me.RestockToolStripMenuItem.Name = "RestockToolStripMenuItem"
-        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.RestockToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RestockToolStripMenuItem.Text = "Restock"
         '
         'ReportToolStripMenuItem

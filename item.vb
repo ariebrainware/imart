@@ -132,7 +132,6 @@ Public Class item
         Me.Dispose()
         main.Show()
     End Sub
-
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         ItemDataGridView.Columns.Clear()
         showData()
